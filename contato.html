@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Delícias da Cozinha</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #d35400;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #a04000;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .page-header i {
+            font-size: 2.5rem;
+            color: #e67e22;
+            margin-bottom: 15px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.2rem;
+            color: #e67e22;
+            margin-bottom: 20px;
+        }
+        
+        /* Formulário */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #d35400;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #e67e22;
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .submit-btn:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            background-color: #fdebd0;
+            color: #d35400;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-back i {
+            margin-right: 8px;
+        }
+        
+        .btn-back:hover {
+            background-color: #f5b041;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        .social-links {
+            margin-bottom: 15px;
+        }
+        
+        .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="page-header">
+                <i class="fas fa-envelope"></i>
+                <h1>Fale Conosco</h1>
+                <p>Envie sua mensagem para a equipe do Delícias da Cozinha!</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="contact-form">
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="assunto">Assunto:</label>
+                    <input type="text" id="assunto" name="assunto" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Enviar Mensagem</button>
+            </form>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Voltar para a Página Inicial</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Delícias da Cozinha. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhamentos - Delícias da Cozinha</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #d35400;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #a04000;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .page-header i {
+            font-size: 2.5rem;
+            color: #e67e22;
+            margin-right: 15px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.2rem;
+            color: #e67e22;
+        }
+        
+        .page-intro {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Receitas */
+        .recipe {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .recipe:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .recipe-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .recipe-number {
+            background-color: #e67e22;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .recipe-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .recipe-content {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            
+            .recipe-details {
+                margin-left: 30px;
+                text-align: left;
+            }
+        }
+        
+        .recipe-details {
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .recipe-details h2 {
+            color: #e67e22;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .recipe-time {
+            background-color: #fdebd0;
+            color: #d35400;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .recipe-ingredients, .recipe-instructions {
+            margin-bottom: 20px;
+        }
+        
+        .recipe-ingredients h3, .recipe-instructions h3 {
+            color: #e67e22;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .recipe-ingredients ul, .recipe-instructions ol {
+            margin-left: 20px;
+            color: #666;
+        }
+        
+        .recipe-ingredients li, .recipe-instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #e67e22;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #d35400;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            background-color: #fdebd0;
+            color: #d35400;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-back i {
+            margin-right: 8px;
+        }
+        
+        .btn-back:hover {
+            background-color: #f5b041;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        .social-links {
+            margin-bottom: 15px;
+        }
+        
+        .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="page-header">
+                <i class="fas fa-leaf"></i>
+                <h1>Acompanhamentos</h1>
+            </div>
+            <p class="page-intro">Opções saborosas para completar suas refeições. Descubra combinações perfeitas para harmonizar com seus pratos principais!</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Receita 1 -->
+        <section class="recipe">
+            <div class="recipe-header">
+                <div class="recipe-number">1</div>
+                <h2>Salada Colorida</h2>
+            </div>
+            <div class="recipe-content">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Salada Colorida" width="400">
+                <div class="recipe-details">
+                    <span class="recipe-time"><i class="fas fa-clock"></i> Tempo de preparo: 15 minutos</span>
+                    
+                    <div class="recipe-ingredients">
+                        <h3><i class="fas fa-shopping-basket"></i> Ingredientes:</h3>
+                        <ul>
+                            <li>1 alface americana picada</li>
+                            <li>1 cenoura ralada</li>
+                            <li>Tomates cereja cortados ao meio</li>
+                            <li>1/2 cebola roxa fatiada</li>
+                            <li>Azeite, sal e limão a gosto</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="recipe-instructions">
+                        <h3><i class="fas fa-list-ol"></i> Instruções:</h3>
+                        <ol>
+                            <li>Lave e pique todos os legumes.</li>
+                            <li>Em uma tigela, misture todos os ingredientes.</li>
+                            <li>Tempere com azeite, sal e limão a gosto.</li>
+                            <li>Misture bem e sirva fresca.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Receita 2 -->
+        <section class="recipe">
+            <div class="recipe-header">
+                <div class="recipe-number">2</div>
+                <h2>Arroz Temperado</h2>
+            </div>
+            <div class="recipe-content">
+                <img src="https://th.bing.com/th/id/R.0b1563b559cb7d41af050ad4fa9f3089?rik=N%2brpLVgF7%2fC5DA&pid=ImgRaw&r=0&sres=1&sresct=1" alt="Arroz Temperado" width="400">
+                <div class="recipe-details">
+                    <span class="recipe-time"><i class="fas fa-clock"></i> Tempo de preparo: 30 minutos</span>
+                    
+                    <div class="recipe-ingredients">
+                        <h3><i class="fas fa-shopping-basket"></i> Ingredientes:</h3>
+                        <ul>
+                            <li>2 xícaras de arroz</li>
+                            <li>4 xícaras de água</li>
+                            <li>1 cebola picada</li>
+                            <li>2 dentes de alho picados</li>
+                            <li>1/2 pimentão vermelho picado</li>
+                            <li>Salsinha picada a gosto</li>
+                            <li>Sal e azeite a gosto</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="recipe-instructions">
+                        <h3><i class="fas fa-list-ol"></i> Instruções:</h3>
+                        <ol>
+                            <li>Refogue a cebola e o alho no azeite até dourar.</li>
+                            <li>Adicione o pimentão e refogue por 2 minutos.</li>
+                            <li>Acrescente o arroz e misture bem.</li>
+                            <li>Adicione a água, tempere com sal e cozinhe até secar.</li>
+                            <li>Desligue o fogo, misture a salsinha e tampe por 5 minutos.</li>
+                            <li>Sirva quente.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Voltar para Categorias</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Delícias da Cozinha. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
